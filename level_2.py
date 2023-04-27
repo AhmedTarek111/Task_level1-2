@@ -8,16 +8,13 @@ print(upper_names)
 #----------------------------------------------------------list comprehension ---------------------------------------------------------------------
 upper_names=[]
 Names=["mahmoud","farida","ali","hassan","mohamed","khaled","taha"]
-Names=[upper_names.append(x.upper()) for x in Names ]
+[upper_names.append(x.upper()) for x in Names ]
 print(upper_names)
 #----------------------------------------------------------functional programing ---------------------------------------------------------------------
-upper_names=[]
 Names=["mahmoud","farida","ali","hassan","mohamed","khaled","taha"]
-def upper(name:str):
-       return name.upper()
-
-x=map(upper,Names)
+x=map(lambda name:name.upper(),Names)
 print(list(x))
+
 #2  =======================================================================================================================================================
 #----------------------------------------------------------normal list---------------------------------------------------------------------
 letter_A=[]
@@ -28,7 +25,6 @@ for name in Names:
                     letter_A.append(name)
 print(letter_A)
 #----------------------------------------------------------list comprehension ---------------------------------------------------------------------
-letter_A=[]
 Names=["mahmoud","farida","ali","hassan","mohamed","khaled","taha"]
 letter_A=[x for x in Names for letter_a in x if letter_a == "a"]
 print(letter_A)
@@ -58,8 +54,7 @@ def name_start_with_t(name:str):
     for letter in name:
         if letter.startswith("t") ==True:
             return name
-        else:
-            return 
+        
 list_of_name_start_with_t=filter(name_start_with_t,Names)
 print(list(list_of_name_start_with_t))
 #4  =======================================================================================================================================================
@@ -78,10 +73,7 @@ print(Names)
 
 #----------------------------------------------------------functional programing ---------------------------------------------------------------------
 Names=["mahmoud","farida","ali","hassan","mohamed","khaled","taha"]
-def count_letter_a(name:str):
-    if name.count("a") >= 2:
-        return name
-list_of_names_have_dublicate_a=list(filter(count_letter_a,Names))
+list_of_names_have_dublicate_a=list(filter(lambda name:name if name.count("a")>=2 else None ,Names))
 print(list_of_names_have_dublicate_a)
 #5  =======================================================================================================================================================
 #----------------------------------------------------------normal list---------------------------------------------------------------------
@@ -97,9 +89,7 @@ list_of_len_of_each_name=[len(name) for name in Names ]
 print(list_of_len_of_each_name)
 #----------------------------------------------------------functional programing ---------------------------------------------------------------------
 Names=["mahmoud","farida","ali","hassan","mohamed","khaled","taha"]
-def len_of_names(name):
-    return len(name)
-list_of_len_names=list(map(len_of_names,Names))
+list_of_len_names=list(map(lambda name:len(name),Names))
 print(list_of_len_names)
 #6  =======================================================================================================================================================
         #7-------------------------------------------------------------------
